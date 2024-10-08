@@ -1,105 +1,106 @@
-/* Basic Reset */
+/* Reset default styling */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #e0f7fa; /* Light cyan background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     color: #333;
-    padding: 20px;
-}
-
-h1, h2 {
-    color: #333;
-    text-align: center;
+  }
+  
+  .form-container {
+    text-align: center; /* Center text and heading */
+  }
+  
+  h1 {
+    font-size: 2.5em; /* Slightly larger font size */
     margin-bottom: 20px;
-}
-
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: auto;
-}
-
-label {
+    color: #d32f2f; /* Vibrant red color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  }
+  
+  form {
+    background-color: #fff; /* White background for the form */
+    padding: 40px; /* Ample padding for spacious feel */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    width: 100%;
+    max-width: 450px; /* Increased max-width for larger screens */
+    transition: transform 0.2s; /* Animation effect */
+  }
+  
+  form:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+  }
+  
+  label {
     display: block;
-    margin: 10px 0 5px;
     font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="date"],
-input[type="checkbox"] {
+    margin-bottom: 8px;
+    color: #1976d2; /* Vibrant blue for labels */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"] {
+    width: 100%;
+    padding: 12px; /* Increased padding for comfort */
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    border: 2px solid #1976d2; /* Blue border */
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.2s; /* Smooth transition for focus effect */
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="date"]:focus {
+    border-color: #d32f2f; /* Change border color to vibrant red on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  button {
     width: 100%;
     padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="date"]:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
-}
-
-button {
-    padding: 12px 20px;
-    background-color: #007bff;
+    background-color: #f57c00; /* Vibrant orange */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 1em;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    width: 100%;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-h2 {
-    margin-top: 30px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background-color: #007bff;
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #e2e2e2;
-}
+    transition: background-color 0.3s, transform 0.2s; /* Added transform transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for button */
+  }
+  
+  button:hover {
+    background-color: #e65100; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+  }
+  
+  button:active {
+    transform: translateY(1px); /* Slightly press down on click */
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2em; /* Adjust heading size for smaller screens */
+    }
+  
+    form {
+      padding: 20px; /* Reduced padding for mobile */
+    }
+  }
+  
