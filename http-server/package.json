@@ -11,5 +11,5 @@
   },
   "author": "sushila_navi",
   "license": "ISC",
-  "description": ""
+  "description": "A simple HTTP server application using Node.js"
 }
