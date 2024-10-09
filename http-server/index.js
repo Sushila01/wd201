@@ -1,31 +1,53 @@
-const express = require('express');
-const path = require('path');
-const minimist = require('minimist');
-// Parse command-line arguments for port
+const http = require("http");
+const fs = require("fs");
+const minimist = require("minimist");
+
 const args = minimist(process.argv.slice(2));
-const PORT = args.port || 3000; // Default to 3000 if no port is specified
+const port = args.port || 3000;
 
-const app = express();
+let homeContent = "";
+let projectContent = "";
+let registrationContent = "";
 
-// Serve static files (HTML, CSS, client-side JS)
-app.use(express.static(path.join(__dirname)));
+fs.readFile("home.html", (err, home) => {
+    if (err) {
+        throw err;
+      }
+      homeContent = home;
+    });
 
-// Route to serve home.html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'home.html'));
+fs.readFile("project.html", (err, project) => {
+  if (err) {
+    throw err;
+  }
+  projectContent = project;
 });
 
-// Route to serve project.html
-app.get('/project', (req, res) => {
-  res.sendFile(path.join(__dirname, 'project.html'));
-});
+fs.readFile("registration.html", (err, registration) => {
+    if (err) {
+      throw err;
+    }
+    registrationContent = registration;
+  });
 
-// Route to serve registration.html
-app.get('/registration', (req, res) => {
-  res.sendFile(path.join(__dirname, 'registration.html'));
-});
-
-// Start the server on the specified port
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+http
+  .createServer((request, response) => {
+    let url = request.url;
+    response.writeHeader(200, { "Content-Type": "text/html" });
+    switch (url) {
+        case "/project":
+            response.write(projectContent);
+            response.end();
+            break;
+        case "/registration":
+            response.write(registrationContent);
+            response.end();
+            break;
+        default:
+            response.write(homeContent);
+            response.end();
+            break;
+    }
+    }).listen(port, () => {
+        console.log(`Server is listening on http://localhost:${port}`);
+    });
