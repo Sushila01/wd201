@@ -1,6 +1,6 @@
 // __tests__/todo.js
 /* eslint-disable no-undef */
-const db = require("../models");
+const db = require("../todo-cli/models");
 
 describe("Todolist Test Suite", () => {
   beforeAll(async () => {
